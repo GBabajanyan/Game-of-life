@@ -1,0 +1,87 @@
+<html>
+
+<head>
+    <meta charset="utf8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        canvas {
+            display: block;
+            margin: 0 auto;
+        }
+
+        div {
+            display: inline-block;
+        }
+
+        h1 {
+            padding: 20px;
+            text-align: center;
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif !important;
+        }
+    </style>
+   
+</head>
+
+<body>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <h1>Ծրագրավորում III Երևան</h1>
+            </tr>
+            <tr>
+                <h1>Գևորգ Բաբաջանյան</h1>
+            </tr>
+            <tr>
+                <button onclick="generateMatrix()">Generate GameZone</button>
+                <button onclick="clearMatrix()">Clear GameZone</button>
+            </tr>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Գույն</th>
+                <th scope="col">Նկարագրություն</th>
+                <th scope="col">Ծնվել է</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td scope="row" style="background-color:green;"></td>
+                <td>Կանաչը կամ սպիտակը Խոտն է,նա բազմանում է 5 տակտը մեկ ամռանը,թջ տակտը մեկ ձմռանը,մեռնում է, երմ նրան ուտում է խոտակերը,կամ երբ նրան հնձում են աշտառակի բնակիչները:</td>
+                <td id="grassCount"></td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td scope="row" style="background-color:yellow"></td>
+                <td>Դեղինը խոտակերն է, նա բազմանում է 3 տակտը մեկ ամռանը, և 4 տակտը մեկ ձմռանը,մեռնում է,երբ նրան ուտում է գիշատիչը կամ խոտակերկերը,նրան կարող են ստեղծել աշտարակի կախարդները` 33.3% շանսով:Ուտում է իրենից 1 վանդակ հեռավորության վրա գտնվող խոտերին:</td>
+                <td id="grassEaterCount"></td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td scope="row" style="background-color:red; "></td>
+                <td>Կարմիրը Խոտակերակերն է կամ գիշատիչը, նա բազմանում է 4 տակտը մեկ,մեռնում է,երբ նրան ուտում է գոլեմը,նրան կարող են ստեղծել աշտարակի կախարդները` 33.3% շանսով:Ուտում է իրենից 1 վանդակ հեռավորության վրա գտնվող խոտակերներին:</td>
+                <td id="grassEaterEaterCount"></td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td scope="row" style="background-color:magenta;"></td>
+                <td>Մանուշակագույնը Աշտարակն է, նա չի բազմապատկվում:Ոչնչանում է 10% շանսով,երբ նրա խոտի պաշարները ձմռանը 125-ից պակաս են լինում:Հնձում է իրենից միչև 2 վանդակ հեռավորության վրա գտնվող խոտերին:Երբ խոտի բաշարները 20-ից ավելի են,իրենից միչև 2 վանդակ հեռավորության վրա 33.3% շանսով նրա կախարդները կարող են ստեղծել Գոլեմ,Գիշատիչ կամ խոտակեր:</td>
+                <td id="towerCount"></td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td scope="row" style="background-color:gray"></td>
+                <td>Մոխրագույնը Գոլեմն է, նրան ստեղծում են աշտարակի կախարդները` 33.3% շանսով:Ուտում է իրենից միչև 3 վանդակ հեռավորության վրա գտնվող ԲՈԼՈՐ գիշատիչերին:Ձմռանը,եթե կերած գիշատիչների թիվը փոքր է 100-ից,սկսում է նաև շարժվել:</td>
+                <td id="golemCount"></td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="p5.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
